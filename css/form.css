@@ -1,0 +1,177 @@
+.u-mt-32{margin-top : 32px !important;}
+
+.form-container {
+    padding-top: 2em;
+    padding-bottom:2em; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(233, 229, 229);
+}
+
+
+.form{
+    padding: 1em;
+    width: 30vw;
+    height: 40em;
+    margin-left: 50px;
+    background-color: #FFF;
+}
+
+@media only screen and (max-width: 576px) {
+    .form {
+      width: 70vw !important;
+    }
+}
+
+.input-container {
+    margin-top : 2em;
+    position: relative;
+    width: 100%;
+
+}
+
+
+.label-text {
+    position: absolute;
+    left: 0;
+    top:0;
+    padding: 8px 52px;
+    color: #ccc;
+    pointer-events: none;
+    transition: all 0.4s;
+    -webkit-transition:all 0.4s;
+    visibility: hidden;
+    /* display: none; */
+    font-size: 12px;
+}
+
+.form .label-text.is-active{
+	font-size: 12px;
+    color: #44beea;
+    transform: translate(0,-24px);
+    visibility: visible;
+    /* display: block; */
+    /* animation: slideIn 0.25s ease; */
+}
+
+.form .icon-active{
+    color: #44beea;
+    border-bottom: 1px solid #44beea;
+}
+
+@keyframes headingSlide {
+	0%   { transform: translateX(-100%); }
+	50%  { transform: translateX(30%); }
+	75%  { transform: translateX(-30%); }
+	100% { transform: translateX(0); }
+}
+
+@keyframes slideIn {
+	0%   { transform: translateY(-50%); }
+	100% { transform: translateY(0%); }
+}
+
+
+@-webkit-keyframes slideInUp {
+  from {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+/* Form */
+.form input[type="text"],
+.form input[type="password"],
+.form input[type="email"],
+.form input[type="url"],
+.form input[type="date"],
+.form input[type="month"],
+.form input[type="time"],
+.form input[type="datetime"],
+.form input[type="datetime-local"],
+.form input[type="week"],
+.form input[type="number"],
+.form input[type="search"],
+.form input[type="tel"],
+.form input[type="color"],
+.form select,
+.form textarea {
+    padding: 8px 58px;
+    display: inline-block;
+    border-bottom: 1px solid #ccc;
+    border-left: 0;
+    border-right:0;
+    border-top:0; 
+    background-color: #fff;
+    /* border-radius: 4px; */
+    vertical-align: middle;
+    box-sizing: border-box;
+    width: 100%;
+    color: #666;
+}
+.form input[type="text"]:focus,
+.form input[type="password"]:focus,
+.form input[type="email"]:focus,
+.form input[type="url"]:focus,
+.form input[type="date"]:focus,
+.form input[type="month"]:focus,
+.form input[type="time"]:focus,
+.form input[type="datetime"]:focus,
+.form input[type="datetime-local"]:focus,
+.form input[type="week"]:focus,
+.form input[type="number"]:focus,
+.form input[type="search"]:focus,
+.form input[type="tel"]:focus,
+.form input[type="color"]:focus,
+.form select:focus,
+.form textarea:focus {
+    outline: 0;
+    border-color: #44beea;
+}
+
+.form input:required:invalid {
+    border-bottom-color: red;
+  }
+  .form input:required:valid {
+    border-bottom-color: green;
+  }
+  .form input:required:invalid ~ .validation:after {
+    content: attr(data-invalid);
+    color: red;
+  }
+  .form input:required:valid ~ .validation:after {
+    content: attr(data-valid);
+    color: green;
+  }
+
+  .icon {
+    position: absolute;
+    left: 0px;
+    top:0;
+    padding-top:0.5em;
+    border-bottom: 1px solid #ccc;
+    color: #ccc;
+    min-width: 50px;
+    height: 100%;
+    text-align: center;
+    font-size:1.2em; 
+}

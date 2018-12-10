@@ -1,0 +1,53 @@
+.fc .fc-state-active, .fc .fc-state-active:focus, .fc .fc-state-active:hover, .fc .fc-state-active:active:focus, .fc .fc-state-active:active:hover, .fc .fc-state-active:active {
+    background-color: #888888;
+    color: #FFFFFF;
+}
+    
+.fc-state-default.fc-corner-left {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+    
+.fc .fc-button-group>* {
+
+    margin: 0 0 0 5px;
+}
+    
+.fc button {
+    border-width: 0.05em;
+    background-color: transparent;
+    font-weight: 400;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    /* padding: 8px 16px; */
+    border-color: #888888;
+    color: #888888;
+}
+
+.fc button .fc-icon {
+    position: relative;
+    top: -0.2em;
+    margin: 0.2em;
+    vertical-align: middle;
+}
+
+.fc-center h2 {
+    color: rgb(110, 108, 108);
+    font-weight: 600;
+}
+.fc-icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    line-height: 1em;
+    font-size: 1em;
+    text-align: center;
+    overflow: hidden;
+    font-family: "Courier New", Courier, monospace;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

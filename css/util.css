@@ -1,0 +1,22 @@
+.border{
+    border: 1px solid #000000;
+}
+
+.text-f {
+    font-family: 微軟正黑體;
+}
+.text-w {
+    color: rgba(233, 233, 241, 0.692);
+}
+.ts-1{
+    font-size: 1.1em;
+}
+
+.m_center {
+    margin-left: auto;
+    margin-right:auto; 
+}
+
+.f-w {
+    width: 100vw;
+}

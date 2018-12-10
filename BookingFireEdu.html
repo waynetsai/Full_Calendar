@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.print.css">
+    <style>
+        #calendarDiv, .calendarDivBefore{
+            max-width: 900px !important;
+        }
+        .calendarDivBefore{
+            margin: 20px auto 0px auto;
+            cursor: default;
+        }
+        #calendarDiv{
+            margin: 20px auto 40px auto;
+            font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+            font-size: 14px;
+            cursor: default;
+        }
+        /*.fc button, .fc-button-group, .fc-time-grid .fc-event .fc-time span{
+            display: initial !important;
+        }*/
+        /*.fc-right .fc-button-group button{*/
+        /*.CalendarTypeBtnActive{
+            background-color: #222 !important;
+        }*/
+        #main{
+            margin-top: 60px;
+            margin-bottom: 0px;
+        }
+        .step-area{
+            max-width: 960px;
+        }
+        .step-area-step1{
+            cursor: pointer;
+        }
+    </style>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <!-- Moment.js v2.20.0 -->
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.0/moment.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
+    <script>
+        var basePath = "https://booking.tpsc.sporetrofit.com";
+	    // basePath = basePath.length == 1 ? "" : basePath;
+
+        $(document).ready(function(){
+            // moment.locale("zh-tw");
+            // initialStepBar();
+            createCalendar();
+        });
+    
+        function createCalendar(){
+    //         $("#calendarDiv").fullCalendar({
+  	// 	// 參數設定[註1]
+  	// 	header: { // 頂部排版
+  	// 		left: "prev,next today", // 左邊放置上一頁、下一頁和今天
+  	// 		center: "title", // 中間放置標題
+  	// 		right: "month,basicWeek,basicDay" // 右邊放置月、周、天
+  	// 	},
+  	// 	defaultDate: "2018-02-12", // 起始日期
+  	// 	weekends: false, // 顯示星期六跟星期日
+  	// 	editable: true,  // 啟動拖曳調整日期
+  	// 	events: [ // 事件
+  	// 		{ // 事件
+  	// 			title: "約會",
+  	// 			start: "2018-02-01"
+  	// 		},
+  	// 		{ // 事件(包含開始時間)
+  	// 			title: "中餐",
+  	// 			start: "2018-02-12T12:00:00"
+  	// 		},
+  	// 		{ // 事件(包含跨日開始時間、結束時間)
+  	// 			title: "音樂節",
+  	// 			start: "2018-02-07",
+  	// 			end: "2018-02-10"
+  	// 		},
+  	// 		{ // 事件(包含開始時間、結束時間)
+  	// 			title: "會議",
+  	// 			start: "2018-02-12T10:30:00",
+  	// 			end: "2018-02-12T12:30:00"
+  	// 		},
+  	// 		{ // 事件(設定連結)
+  	// 			title: "Click for Google",
+  	// 			url: "http://google.com/",
+  	// 			start: "2018-02-28"
+  	// 		}
+  	// 	]
+  	// });
+            $("#calendarDiv").fullCalendar({
+                header: {
+                    left: "prev,next today",
+                    center: "title",
+                    right: ""//"month,agendaWeek,agendaDay,listWeek"
+                },
+                //defaultView: "month",//default: month
+                defaultDate: moment().add(7, "days").format("YYYY-MM-DD"),//"2016-12-12"
+                navLinks: false, // can click day/week names to navigate views
+                editable: true,
+                eventLimit: true, // allow "more" link when too many events
+                businessHours: true, // display business hours
+                locale: "zh-tw",
+                //buttonIcons: false, // false:show the prev/next text
+                weekNumbers: true,
+                weekNumbersWithinDays: true,
+                weekNumberCalculation: "ISO",
+                selectable: false,
+                selectHelper: false,
+                select: function(start, end){
+                    var title = prompt("Event Title++");
+                    var eventData;
+                    if(title){
+                        eventData = {
+                            title: title,
+                            start: start,
+                            end: end
+                        };
+                        $("#calendarDiv").fullCalendar("renderEvent", eventData, true); // stick? = true
+                    }
+                    $("#calendarDiv").fullCalendar("unselect");
+                },
+                eventClick: function(calEvent, jsEvent, view){//點擊活動
+                    console.log("Event: " + calEvent.title + ", Coordinates: " + jsEvent.pageX + "," + jsEvent.pageY + ", day:" + calEvent.start.format("YYYY-MM-DD") + ", View: " + view.name);
+                    window.location = basePath + "/Location/BookingList?LID=DASC&CategoryId=TableTennis&UseDate=" + calEvent.start.format("YYYY-MM-DD");
+                    //$(this).css("border-color", "red");
+                },
+                dayClick: function(date, jsEvent, view, resourceObj){//月曆點擊某天
+                    return;
+                    console.log("Clicked on: " + date.format() + ", Coordinates: " + jsEvent.pageX + "," + jsEvent.pageY + ", Current view: " + view.name);
+                    // change the day's background color just for fun
+                    //$(this).css("background-color", "blue");
+                },
+                eventAfterRender: function(event, element, view){
+                    console.log("eventAfterRender" + element);
+                },
+                eventAfterAllRender: function(view){
+                    console.log("eventAfterAllRender" + view);
+                    /*$(".fc-right .fc-button-group button").click(function(btn){
+                        //$(".fc-right .fc-button-group button").each(function(){
+                        $(this).parent().children().each(function(){
+                            $(this).removeClass("CalendarTypeBtnActive");
+                        });
+                        $(this).addClass("CalendarTypeBtnActive");
+                    });*/
+                },
+                eventSources: [
+                    {
+                        url: basePath + "/Location/findAllowBookingCalendars",
+                        type: "POST",
+                        data: { LID: "DASC", categoryId: "TableTennis" },
+                        error: function(a, b, c, d){
+                            console.log("there was an error while fetching events!");
+                        }
+                    }
+                ],
+                eventAfterAllRender: function(view){
+                    if(view.dayGrid.segs.length == 0)
+                        jAlert("查無資料", "　");
+                },
+                events: [
+                    {
+                        title: "Click for Google",
+                        url: "http://google.com/",
+                        start: "2017-02-28"
+                    },
+                    {
+                        title: "Business Lunch",
+                        start: "2017-02-12T10:30:00",
+                        end: "2017-02-12T12:30:00",
+                        constraint: "businessHours"
+                    },
+                    {
+                        title: "Meeting",
+                        start: "2016-12-13T11:00:00",
+                        constraint: "availableForMeeting", // defined below
+                        color: "#257e4a"
+                    },
+                    // red areas where no events can be dropped
+                    {
+                        start: "2016-12-24",
+                        end: "2016-12-28",
+                        overlap: true,
+                        rendering: "background",
+                        color: "#ff9f89"
+                    },
+                    {
+                        start: "2016-12-06",
+                        end: "2016-12-08",
+                        overlap: false,//無法拖曳進來此區域
+                        rendering: "background",
+                        color: "#ff9f89"
+                    }
+                ]
+            });
+        }
+    
+        // function initialStepBar(){
+        //     $(".step-area-step1").click(function(){
+        //         goHomePage();
+        //     }).mouseenter(function(){
+        //         $(this).css("background-image", "url(/Content/img/step1_bg_h.png)");
+        //     }).mouseleave(function(){
+        //         $(this).css("background-image", "url(/Content/img/step1_bg.png)");
+        //     });
+        // }
+    </script>
+</head>
+<body>
+    <div id="calendarDiv" class="container"></div>
+</body>
+</html>

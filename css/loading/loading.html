@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="ball-spin-fade-in.css">
+    <style>
+        body {
+            background-color: black;
+        }
+        main {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .l-size {
+            width: 15vh;
+            height: 15vh;
+        }
+    </style>
+</head>
+<body>
+        <main>
+                    
+                
+                  <div class="loader">
+                    <div class="loader-inner ball-spin-fade-loader l-size">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+              </main>
+              <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                  document.querySelector('main').className += 'loaded';
+                });
+              </script>
+</body>
+</html>

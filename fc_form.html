@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+        <div class="container">
+                <div class="wizard" id="myWizard">
+                  <section>
+                    <h4 class="page-title text-center">Create Associate</h4>
+                  </section>
+                  <div class="wizard__progress">
+                    <ul class="wizard__labels nav nav-tabs">
+                      <li style="width:25%;" class="col-xs-12 active">
+                        <a href="#create-assignment" data-toggle="tab" data-step="1">
+                          <i class="fa fa-folder-open wizard__icon"></i> Create Assignment</a>
+                      </li>
+                      <li style="width:25%;" class="col-xs-12 ">
+                        <a href="#associate-info" data-toggle="tab" data-step="2">
+                          <i class="fa fa-user wizard__icon"></i> Associate Info</a>
+                      </li>
+                      <li style="width:25%;" class="col-xs-12 ">
+                        <a href="#working-conditions" data-toggle="tab" data-step="3">
+                          <i class="fa fa-file-text-o wizard__icon"></i> Working Conditions</a>
+                      </li>
+                      <li style="width:25%;" class="col-xs-12 " id="lastli">
+                        <a href="#validate" data-toggle="tab" data-step="4">
+                          <i class="fa fa-check wizard__icon"></i> Validate
+                        </a>
+                      </li>
+                    </ul>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="5" style="width: 25%;"> </div>
+                    </div>
+                  </div>
+                  <div class="tab-content">
+                    <div class="tab-pane fade in active" id="create-assignment">
+              
+                      <section>
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label class="control-label" for="name--first"> First Name<span class="required">*</span></label>
+                              <input type="text" class="form-control input-sm" id="name__first">
+                            </div>
+                          </div>
+                          <!-- / end col -->
+              
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label class="control-label" for="name--last"> Last Name <span class="required">*</span></label>
+                              <input type="text" class="form-control input-sm" id="name__last">
+                            </div>
+                          </div>
+                          <!-- / end col -->
+              
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label class="control-label" for="name--first"> Kana First Name</label>
+                              <input type="text" class="form-control input-sm" id="name__first--kana">
+                            </div>
+                          </div>
+                          <!-- / end col -->
+              
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label class="control-label" for="name--last">Kana Last Name </label>
+                              <input type="text" class="form-control input-sm" id="name__last--kana">
+                            </div>
+                          </div>
+                          <!-- / end col -->
+              
+                          <div class="col-sm-2">
+                            <div class="form-group">
+                              <label class="control-label" for="email-type">Email Type</label>
+                              <select class="form-control input-sm" id="email-type">
+                                <option value="">Home</option>
+                                <option value="">Work</option>
+                              </select>
+                            </div>
+                          </div>
+                          <!-- / end col -->
+              
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label class="control-label" for="email">Email</label>
+                              <input type="email" class="form-control input-sm" id="email">
+                            </div>
+                          </div>
+                          <!-- / end col -->
+              
+                          <div class="col-sm-2">
+                            <div class="form-group">
+                              <label class="control-label" for="phone-type">Phone Type </label>
+                              <select class="form-control input-sm" id="phone-type">
+                                <option value="">Mobile</option>
+                                <option value="">Home</option>
+                              </select>
+                            </div>
+                          </div>
+                          <!-- / end col -->
+              
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label class="control-label" for="phone">Phone</label>
+                              <input type="phone" class="form-control input-sm" id="phone">
+                            </div>
+                          </div>
+                          <!-- / end col -->
+              
+                          <div class="col-sm-3">
+                            <div class="form-group">
+                              <label class="control-label" for="address-type">Address Type </label>
+                              <select class="form-control input-sm" id="address-type">
+                                <option value="">Home</option>
+                                <option value="">Administrative</option>
+                              </select>
+                            </div>
+                          </div>
+                          <!-- / end col -->
+              
+              
+                          <div class="col-sm-3">
+                            <!-- ================= country ================= -->
+                            <div class="form-group">
+                              <label class="control-label" for="country">Country</label>
+                              <select class="form-control input-sm" id="country">
+                                <option>United States</option>
+                                <option>United Kingdom</option>
+                                <option>Italy</option>
+                                <option>France</option>
+                                <option>Spain</option>
+                                <option>Japan</option>
+                              </select>
+                            </div>
+                          </div>
+                          <!-- / end col -->
+              
+                          <div class="col-sm-6">
+                            <!-- ================= address ================= -->
+                            <div class="form-group">
+                              <label class="control-label" for="address">Address</label>
+                              <input type="text" class="form-control input-sm" id="address" />
+                              <button class="help-block btn btn-link btn-sm pull-right" type="button" data-toggle="collapse" data-target="#address--manual1" aria-expanded="false" aria-controls="address--manual1">Can't find your address? Enter manually.</button>
+                            </div>
+              
+              
+                          </div>
+                          <!-- / end col -->
+              
+                          <div class="col-xs-12">
+              
+                            <div class="collapse space-bottom-lg" id="address--manual1">
+              
+                              <div class="row">
+              
+                                <div class="col-xs-12">
+                                  <!-- ================= address ================= -->
+                                  <div class="form-group">
+                                    <label class="control-label" for="address">Address</label>
+                                    <textarea class="form-control input-sm" rows="3" id="address"></textarea>
+                                  </div>
+                                </div>
+                                <!-- / end col -->
+              
+                                <div class="col-sm-4">
+                                  <!-- ================= city ================= -->
+                                  <div class="form-group">
+                                    <label class="control-label" for="info--city">City</label>
+                                    <input type="text" class="form-control input-sm" id="info--city" placeholder="city" />
+                                  </div>
+                                </div>
+                                <!-- / end col -->
+              
+                                <div class="col-sm-4">
+                                  <!-- ================= county ================= -->
+                                  <div class="form-group">
+                                    <label class="control-label" for="info--country">Country</label>
+                                    <input type="text" class="form-control input-sm" id="info--country" placeholder="country" />
+                                  </div>
+                                </div>
+                                <!-- / end col -->
+              
+                                <div class="col-sm-4">
+                                  <!-- ================= postal ================= -->
+                                  <div class="form-group">
+                                    <label class="control-label" for="postal--code">Postal Code</label>
+                                    <input type="text" class="form-control input-sm" id="postal--code" placeholder="Postal Code" />
+                                  </div>
+                                </div>
+                                <!-- / end col -->
+              
+                              </div>
+              
+                            </div>
+                            <!-- / end collapse -->
+              
+                          </div>
+                          <!-- / end col -->
+              
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label class="control-label" for="dob">Date of Birth</label>
+                              <input type="text" class="js-single-daterange form-control input-sm" id="dob" />
+                            </div>
+                          </div>
+                          <!-- / end col -->
+              
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label class="control-label" for="gender">Gender</label>
+                              <select class="form-control input-sm" id="gender">
+                                <option value="">Male</option>
+                                <option value="">Female</option>
+                              </select>
+                            </div>
+                          </div>
+                          <!-- / end col -->
+              
+              
+                        </div>
+                      </section>
+                      <section class="text-right">
+                        <button type="button" class="btn btn-primary btn-sm next">Continue</button>
+                      </section>
+              
+                    </div>
+                    <div class="tab-pane fade" id="associate-info">
+                      <section>
+              
+                        <div class="row">
+              
+                          <div class="col-sm-3">
+                            <div class="form-group">
+                              <label class="control-label" for="nid-type">National ID Type </label>
+                              <select class="form-control input-sm" id="nid-type">
+                                <option value="">Type 1</option>
+                                <option value="">Type 2</option>
+                              </select>
+                            </div>
+                          </div>
+                          <!-- / end col -->
+              
+              
+                          <div class="col-sm-3">
+                            <!-- ================= country ================= -->
+                            <div class="form-group">
+                              <label class="control-label" for="nid-country">National ID Country</label>
+                              <select class="form-control input-sm" id="nid-country">
+                                <option>United States</option>
+                                <option>United Kingdom</option>
+                                <option>Italy</option>
+                                <option>France</option>
+                                <option>Spain</option>
+                                <option>Japan</option>
+                              </select>
+                            </div>
+                          </div>
+                          <!-- / end col -->
+              
+                          <div class="col-sm-6">
+                            <!-- ================= address ================= -->
+                            <div class="form-group">
+                              <label class="control-label" for="nid">National ID Number</label>
+                              <input type="text" class="form-control input-sm" id="nid" />
+                            </div>
+              
+              
+                          </div>
+                          <!-- / end col -->
+              
+                          <div class="col-xs-12" id="enter-id">
+              
+                            <div class="row">
+              
+                              <div class="col-sm-3">
+                                <div class="form-group">
+                                  <label class="control-label" for="nid-type">National ID Type </label>
+                                  <select class="form-control input-sm" id="nid-type">
+                                    <option value="">Type 1</option>
+                                    <option value="">Type 2</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <!-- / end col -->
+              
+              
+                              <div class="col-sm-3">
+                                <!-- ================= country ================= -->
+                                <div class="form-group">
+                                  <label class="control-label" for="nid-country">National ID Country</label>
+                                  <select class="form-control input-sm" id="nid-country">
+                                    <option>United States</option>
+                                    <option>United Kingdom</option>
+                                    <option>Italy</option>
+                                    <option>France</option>
+                                    <option>Spain</option>
+                                    <option>Japan</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <!-- / end col -->
+              
+                              <div class="col-sm-6">
+                                <!-- ================= address ================= -->
+                                <div class="form-group">
+                                  <label class="control-label" for="nid">National ID Number</label>
+                                  <input type="text" class="form-control input-sm" id="nid" />
+                                </div>
+              
+              
+                              </div>
+                              <!-- / end col -->
+              
+                              <div class="col-sm-3">
+                                <div class="form-group">
+                                  <label class="control-label" for="nid-type">National ID Type </label>
+                                  <select class="form-control input-sm" id="nid-type">
+                                    <option value="">Type 1</option>
+                                    <option value="">Type 2</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <!-- / end col -->
+              
+              
+                              <div class="col-sm-3">
+                                <!-- ================= country ================= -->
+                                <div class="form-group">
+                                  <label class="control-label" for="nid-country">National ID Country</label>
+                                  <select class="form-control input-sm" id="nid-country">
+                                    <option>United States</option>
+                                    <option>United Kingdom</option>
+                                    <option>Italy</option>
+                                    <option>France</option>
+                                    <option>Spain</option>
+                                    <option>Japan</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <!-- / end col -->
+              
+                              <div class="col-sm-6">
+                                <!-- ================= address ================= -->
+                                <div class="form-group">
+                                  <label class="control-label" for="nid">National ID Number</label>
+                                  <input type="text" class="form-control input-sm" id="nid" />
+                                </div>
+              
+              
+                              </div>
+                              <!-- / end col -->
+              
+              
+                            </div>
+              
+                            <hr class="section-divider"/>
+                          </div>
+                          <!-- end enter id-->
+              
+              
+                          <div class="col-sm-6">
+                            <!-- ================= country ================= -->
+                            <div class="form-group">
+                              <label class="control-label" for="birth-country">Birth Country</label>
+                              <select class="form-control input-sm" id="birth-country">
+                                <option>United States</option>
+                                <option>United Kingdom</option>
+                                <option>Italy</option>
+                                <option>France</option>
+                                <option>Spain</option>
+                                <option>Japan</option>
+                              </select>
+                            </div>
+                          </div>
+                          <!-- / end col -->
+              
+              
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label class="control-label" for="marital-status">Marital Status </label>
+                              <select class="form-control input-sm" id="marital-status">
+                                <option value="">Single</option>
+                                <option value="">Married</option>
+                                <option value="">Divorced</option>
+                                <option value="">Widowed</option>
+                              </select>
+                            </div>
+                          </div>
+                          <!-- / end col -->
+              
+              
+                        </div>
+                        <!-- / end row -->
+              
+              
+                      </section>
+                      <section class="text-right">
+                        <button type="button" class="btn btn-primary btn-sm" id="submit-id-button">Submit National ID</button>
+                        <button type="button" class="btn btn-default btn-sm next" disabled id="enter-id-button">Continue</button>
+                      </section>
+                    </div>
+                    <div class="tab-pane fade" id="working-conditions">
+                      <section>
+                        <div class="row">
+                          
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label class="control-label" for="start-date">Start Date</label>
+                              <input type="text" class="js-single-daterange form-control input-sm" id="start-date" />
+                            </div>
+                          </div>
+                          <!-- / end col -->
+                          
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label class="control-label" for="end-date">End Date</label>
+                              <input type="text" class="js-single-daterange form-control input-sm" id="end-date" />
+                            </div>
+                          </div>
+                          <!-- / end col -->
+                          
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label class="control-label" for="agreed-salary">Agreed Salary</label>
+                              <input type="number" class="form-control input-sm" id="agreed-salary" />
+                            </div>
+                          </div>
+                          <!-- / end col -->
+                          
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label class="control-label" for="currency">Curency</label>
+                              <select class="form-control input-sm" id="currency">
+                                <option value="">$</option>
+                                <option value="">€</option>
+                                <option value="">₤</option>
+                              </select>
+                            </div>
+                          </div>
+                          <!-- / end col -->
+                          
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label class="control-label" for="timescale">Time Scale</label>
+                              <select class="form-control input-sm" id="timescale">
+                                <option value="">Day</option>
+                                <option value="">Week</option>
+                                <option value="">Month</option>
+                                <option value="">Year</option>
+                              </select>
+                            </div>
+                          </div>
+                          <!-- / end col -->
+                          
+                          <div class="col-sm-12">
+                            <div class="form-group">
+                              <label class="control-label" for="note">Add a Note for Candidate Placement</label>
+                              <textarea class="form-control input-sm" id="note"></textarea>
+                            </div>
+                          </div>
+                          <!-- / end col -->
+                          
+                          
+                          
+                          
+                        </div>
+                      </section>
+                      <section class="text-right">
+                        <button type="button" class="btn btn-primary btn-sm next" id="last">Continue</button>
+                      </section>
+                    </div>
+                    <div class="tab-pane fade" id="validate">
+                      <section>
+                        <div class="alerts--child alerts--success">
+                          <div class="alerts__icon">
+                            <i class="fa fa-check"></i>
+                          </div>
+                          <div class="alerts__text">
+                            <span class="alerts__type">Success: </span>You've created an assignment!
+                          </div>
+              
+                        </div>
+                      </section>
+              
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+</body>
+</html>

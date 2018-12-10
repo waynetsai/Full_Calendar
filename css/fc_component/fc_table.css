@@ -1,0 +1,18 @@
+.fc th {
+    border: 0 ;
+    text-align: right;
+    /* border-bottom-width: 1px; */
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: rgb(83, 83, 83);
+    font-weight: 500;
+    padding-bottom: 3px;
+}
+
+.fc .fc-head .fc-widget-header {
+    margin-top: 15px;
+}
+
+.fc .fc-widget-header {
+    border: 0;
+}
